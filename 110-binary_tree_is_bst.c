@@ -5,6 +5,8 @@
  * binary_search_min_max_value - A helper function that searches for the
  * minimum maximum value through the binary tree
  * @tree: A pointer to the root of the binary tree
+ * @min: minimum value on the binary tree
+ * @max: maximum value on the binary tree
  * Return: maximum value in the search
  */
 
@@ -13,7 +15,9 @@ int binary_search_min_max_value(const binary_tree_t *tree, int min, int max)
 	if (tree != NULL)
 	{
 		if (tree->n < min || tree->n > max)
-			 return (0);
+		{
+			return (0);
+		}
 		return (binary_search_min_max_value(tree->left, min,
 			tree->n - 1) && binary_search_min_max_value
 			(tree->right, tree->n + 1, max));
